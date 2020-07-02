@@ -406,13 +406,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
   scrollSpeed: 100
-  waypoint: {fileID: 0}
-  buttonVal: 0
-  height: 0
+  isAlive: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  xd: {fileID: 0}
 --- !u!1 &8027749206881879254
 GameObject:
   m_ObjectHideFlags: 0
