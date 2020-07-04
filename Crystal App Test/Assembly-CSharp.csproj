@@ -63,10 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\RotateTowards.cs" />
     <Compile Include="Assets\SimpleControlScript.cs" />
+    <None Include="Assets\FromStore\WorldMaterialsFree\WorldMatFree.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
@@ -86,17 +89,26 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
     </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>C:/Users/marci/Desktop/Unity/CrystalAppTest/Crystal App Test/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

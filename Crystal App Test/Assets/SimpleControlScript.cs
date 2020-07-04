@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class SimpleControlScript : MonoBehaviour
 {
-    public Camera playerCamera;
-    private float moveSpeed = 0.1f;
-    public float scrollSpeed = 100f;
+    public Camera camera;
+    public float moveSpeed = 0.1f;
+    public float JumpPow = 100f;
+    float SmoothAnglStep=0.1f;
+    float SmoothAnglVelocity;
     Rigidbody myRigidbody;
     GameObject myGameObject;
     float horizontal, vertical;
@@ -27,10 +29,10 @@ public class SimpleControlScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CameraRotation();
+        //CameraRotation();
         if (isAlive)
         {
-            SpaceMovement();
+            Movement();
             CheckIfAlive();
         }
         else {
@@ -39,6 +41,7 @@ public class SimpleControlScript : MonoBehaviour
         //Debug.Log(vertical);
         //Debug.Log(myRigidbody.velocity.y);
         Debug.Log(isGround);
+        Debug.Log(isAlive);
     }
 
     private void TemporaryReset()
@@ -65,36 +68,23 @@ public class SimpleControlScript : MonoBehaviour
     {
         isGround = true;
     }
-    void SpaceMovement()
+    void Movement()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-        //animator.SetFloat("vertical", vertical);
-        //animator.SetBool("isGround", isGround);
-        //animator.SetFloat("horizontal", horizontal);
-        if (horizontal != 0 || vertical != 0)
-        {
-            transform.position += moveSpeed * (Input.GetAxisRaw("Horizontal") * transform.right + transform.forward * Input.GetAxisRaw("Vertical"));
+        Vector3 dir = new Vector3(horizontal, 0f, vertical).normalized;
+        Debug.Log(dir.x + "|" + dir.y + "|" + dir.z);
+        if (dir.magnitude >= 0.1f) {
+            float angl = Mathf.Atan2(dir.x,dir.z)*Mathf.Rad2Deg+camera.transform.eulerAngles.y;
+            float tempAngl = Mathf.SmoothDampAngle(transform.eulerAngles.y, angl, ref SmoothAnglVelocity, SmoothAnglStep);
+            transform.rotation = Quaternion.Euler(0,tempAngl,0);
+            Vector3 MoveDir = Quaternion.Euler(0f, angl, 0f)*Vector3.forward;
+            transform.Translate(MoveDir*moveSpeed*Time.deltaTime,Space.World);
         }
-
         if (Input.GetKey(KeyCode.Space)&&isGround)
         {
-            //animator.Play("Jump");
             isGround = false;
-            myRigidbody.AddForce(Vector3.up*scrollSpeed,ForceMode.Impulse);
+            myRigidbody.AddForce(Vector3.up*JumpPow,ForceMode.Impulse);
         }
-    }
-
-    void CameraRotation()
-    {
-        Vector2 posOnScreen = Camera.main.WorldToScreenPoint(playerCamera.transform.position);
-        Vector2 mousePosOnScreen = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        float angle = Mathf.Atan2(posOnScreen.x = mousePosOnScreen.x, posOnScreen.y = mousePosOnScreen.y) * Mathf.Rad2Deg;
-        Vector3 eulers = playerCamera.transform.eulerAngles;
-        eulers.z = 0;
-        playerCamera.transform.eulerAngles = eulers;
-        playerCamera.transform.Rotate(new Vector3(Input.GetAxis("Mouse Y") * -10, 0, 0));
-        // Debug.Log(Input.GetAxis("Mouse Y") * -10);
-        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * 10, 0));
     }
 }
