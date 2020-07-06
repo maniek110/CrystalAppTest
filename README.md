@@ -1,4 +1,3 @@
 # CrystalAppTest
-Crystal App Test
-Build link:
-[a relative link](Build.rar)
+## Crystal App Test
+[Build Link](Build.rar)
